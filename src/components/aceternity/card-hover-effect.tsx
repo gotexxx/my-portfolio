@@ -11,7 +11,7 @@ export const HoverEffect = ({
     items: {
         title: string;
         description: string;
-        link: string;
+        icon?: string;
     }[];
     className?: string;
 }) => {
@@ -25,8 +25,7 @@ export const HoverEffect = ({
             )}
         >
             {items.map((item, idx) => (
-                <a
-                    href={item?.link}
+                <div
                     key={idx}
                     className="relative group  block p-2 h-full w-full  "
                     onMouseEnter={() => setHoveredIndex(idx)}
@@ -50,10 +49,10 @@ export const HoverEffect = ({
                         )}
                     </AnimatePresence>
                     <Card >
-                        <CardTitle>{item.title}</CardTitle>
+                        <CardTitle><span className="ml-2">{item.icon}</span> {item.title}</CardTitle>
                         <CardDescription>{item.description}</CardDescription>
                     </Card>
-                </a>
+                </div>
             ))}
         </div>
     );

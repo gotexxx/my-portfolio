@@ -14,14 +14,23 @@ import {
   CardContainer,
   CardItem,
   PointerHighlight,
-  Meteors, BackgroundBeamsWithCollision
+  Meteors, BackgroundBeamsWithCollision,
+  Navbar,
+  NavBody,
+  NavItems,
+  MobileNav,
+  NavbarLogo,
+  NavbarButton,
+  MobileNavHeader,
+  MobileNavToggle,
+  MobileNavMenu,
 } from "@/components";
 import { FaGithub, FaLinkedin, FaEnvelope, FaFileDownload } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
-
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -38,39 +47,55 @@ export default function Home() {
     {
       title: "React",
       icon: "⚛️",
-      description: "Erstellung dynamischer und responsiver Benutzeroberflächen."
+      description: "Moderne UI-Entwicklung mit Komponenten und Hooks."
     },
     {
       title: "Next.js",
-      icon: "▲",
-      description: "Full-Stack-Webanwendungen mit den neuesten React-Funktionen."
+      icon: "⏭️",
+      description: "Full-Stack-Framework für performante React-Anwendungen."
     },
     {
       title: "TypeScript",
-      icon: "TS",
-      description: "Schreiben von robustem, skalierbarem und typsicherem Code."
+      icon: "🟦",
+      description: "Typsicheres JavaScript für bessere Wartbarkeit und Skalierung."
     },
     {
       title: "Node.js",
       icon: "🟢",
-      description: "Erstellung effizienter und skalierbarer serverseitiger Anwendungen."
+      description: "Serverseitige Entwicklung mit JavaScript und hoher Performance."
     },
     {
       title: "Tailwind CSS",
-      icon: "🎨",
-      description: "Schnelles Erstellen moderner Designs direkt im Markup."
+      icon: "💨",
+      description: "Utility-First-CSS für schnelle und flexible UI-Gestaltung."
     },
     {
-      title: "GraphQL",
-      icon: "📊",
-      description: "Präzises und effizientes Abfragen von APIs."
+      title: "Strapi",
+      icon: "🛠️",
+      description: "Headless CMS zur einfachen API-Erstellung und Content-Verwaltung."
+    },
+    {
+      title: "Shopware",
+      icon: "🛒",
+      description: "Moderne E-Commerce-Plattform mit API-First-Ansatz."
+    },
+    {
+      title: "Symfony",
+      icon: "🎼",
+      description: "PHP-Framework für strukturierte und skalierbare Webanwendungen."
+    },
+    {
+      title: "Neos",
+      icon: "🧠",
+      description: "Content-Management mit Fokus auf Redaktion und Struktur."
     },
   ];
+
 
   const people = [
     {
       id: 1,
-      name: "Alexander Klein",
+      name: "Filip Stosik",
       designation: "Full-Stack-Entwickler",
       image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
     },
@@ -175,7 +200,42 @@ export default function Home() {
   return (
       <div className="relative min-h-screen bg-gray-900 text-white overflow-x-hidden">
         <div className="relative z-10">
-          <FloatingNav navItems={navItems} />
+
+          {/* --- Navbar ---*/}
+          <Navbar className={" h-10 z-1000 w-fit mx-auto pt-10 "}>
+            {/* Desktop Navigation */}
+            <NavBody className=" bg-gray-600/80 items-center h-10 w-fit px-10 fixed mx-auto left-1/2  transform -translate-x-1/2 ">
+              <NavItems  items={navItems} />
+            </NavBody>
+
+            {/* Mobile Navigation */}
+            <MobileNav className="bg-gray-600/80  h-10 z-1000 w-fit mx-0 fixed ">
+              <MobileNavHeader className="px-4 w-fit">
+                <MobileNavToggle
+                    isOpen={isMobileMenuOpen}
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                />
+              </MobileNavHeader>
+
+              <MobileNavMenu
+                  isOpen={isMobileMenuOpen}
+                  onClose={() => setIsMobileMenuOpen(false)}
+                  className="w-fit"
+              >
+                {navItems.map((item, idx) => (
+                    <a
+                        key={`mobile-link-${idx}`}
+                        href={item.link}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="relative text-neutral-600 dark:text-neutral-300"
+                    >
+                      <span className="block">{item.name}</span>
+                    </a>
+                ))}
+
+              </MobileNavMenu>
+            </MobileNav>
+          </Navbar>
 
           <main className="mx-auto py-20 flex flex-col gap-20 items-center px-10">
             {/* --- Hero Section --- */}
@@ -218,7 +278,7 @@ export default function Home() {
                 <p className="mt-3 text-neutral-400 max-w-2xl mx-auto">Eine Auswahl meiner technischen Fähigkeiten und Werkzeuge, die ich nutze, um Ideen zum Leben zu erwecken.</p>
               </div>
               <div className="max-w-6xl mx-auto">
-                <HoverEffect items={skills.map(skill => ({...skill, link: "#"}))} />
+                <HoverEffect items={skills.map(skill => ({...skill}))} />
               </div>
             </section>
 

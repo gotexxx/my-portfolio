@@ -16,3 +16,4 @@ export * from "@/components/aceternity/pointer-highlight";
 export * from "@/components/aceternity/link-preview";
 export * from "@/components/aceternity/background-beams-with-collision";
 export * from "@/components/aceternity/background-gradnient-animation";
+export * from "@/components/aceternity/resizable-navbar";
