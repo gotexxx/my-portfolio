@@ -14,6 +14,7 @@ import {
   CardContainer,
   CardItem,
   PointerHighlight,
+  Meteors, BackgroundBeamsWithCollision
 } from "@/components";
 import { FaGithub, FaLinkedin, FaEnvelope, FaFileDownload } from "react-icons/fa";
 import { useState, useEffect } from "react";
@@ -81,24 +82,24 @@ export default function Home() {
       title: "E-Commerce-Plattform",
       description: "Ein vollständiger Online-Shop mit Warenkorbfunktion und Zahlungsabwicklung.",
       tags: ["Next.js", "Shopware", "Neos"],
-      link: "#",
-      thumbnail: "/images/project1.jpg",
+      link: "https://mkm.legal/",
+      thumbnail: "/img.png",
     },
     {
       id: 2,
       title: "Aufgabenverwaltungs-App",
       description: "Ein kollaborativer Aufgabenmanager mit Echtzeit-Updates.",
       tags: ["Next.js", "Strapi"],
-      link: "#",
-      thumbnail: "/images/project2.jpg",
+      link: "https://klima-unna.de/",
+      thumbnail: "/img_1.png",
     },
     {
       id: 3,
       title: "KI-Bildgenerator",
       description: "Generieren Sie benutzerdefinierte Bilder mit KI-Prompts und speichern Sie diese.",
       tags: ["Next.js", "Neos"],
-      link: "#",
-      thumbnail: "/images/project3.jpg",
+      link: "https://www.lebenszentrum-koenigsborn.de/",
+      thumbnail: "/img_2.png",
     },
   ];
 
@@ -172,7 +173,7 @@ export default function Home() {
   ];
 
   return (
-      <div className="min-h-screen bg-gray-950 text-white overflow-x-hidden">
+      <div className="relative min-h-screen bg-gray-900 text-white overflow-x-hidden">
         <div className="relative z-10">
           <FloatingNav navItems={navItems} />
 
@@ -181,9 +182,9 @@ export default function Home() {
             <section id="about" className="pt-24 md:pt-32 relative">
               <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
                 <div className="flex flex-col gap-6 z-100">
-                  <TypewriterEffect words={words} className="text-3xl md:text-4xl" />
+                  <TypewriterEffect words={words} className="text-3xl md:text-4xl max-w-[600px] h-[144px]" />
                   <h1 className="text-5xl md:text-6xl font-bold">
-                    Hallo, ich bin <ColourfulText text={"Filip"} /> 👋
+                    Hallo, ich bin <ColourfulText text={"Filip "}/> 👋
                   </h1>
                   <p className="text-lg text-neutral-300 leading-relaxed max-w-xl">
                     Ich bin ein leidenschaftlicher Full-Stack-Entwickler, spezialisiert auf die Erstellung sauberer, leistungsstarker Webanwendungen. Mit über 5 Jahren Erfahrung bin ich Experte für React-Ökosysteme und moderne JavaScript-Frameworks.
@@ -234,7 +235,7 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {projects.map((project) => (
                     <CardContainer key={project.id}>
-                      <CardBody className="bg-gray-900 relative group/card hover:shadow-2xl hover:shadow-blue-500/[0.2] border-white/[0.2] w-full h-full rounded-xl p-6 border">
+                      <CardBody className="bg-gray-800 relative group/card hover:shadow-2xl hover:shadow-blue-500/[0.2] border-white/[0.2] w-full h-full rounded-xl p-6 border">
                         <CardItem translateZ="50" className="text-xl font-bold text-neutral-50">
                           {project.title}
                         </CardItem>
@@ -262,13 +263,14 @@ export default function Home() {
                             Ansehen
                           </CardItem>
                         </div>
+
                       </CardBody>
                     </CardContainer>
                 ))}
               </div>
             </section>
 
-            <hr className="border-neutral-800" />
+            <hr className="border-neutral-500" />
 
             <section id="experience" className="py-12">
               <div className="text-center mb-16">
@@ -330,6 +332,7 @@ export default function Home() {
               </p>
             </div>
           </footer>
+
         </div>
       </div>
   );
