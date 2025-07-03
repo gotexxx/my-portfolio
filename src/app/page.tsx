@@ -23,10 +23,11 @@ import {
   NavbarButton,
   MobileNavHeader,
   MobileNavToggle,
-  MobileNavMenu,
+  MobileNavMenu, Timeline,
 } from "@/components";
 import { FaGithub, FaLinkedin, FaEnvelope, FaFileDownload } from "react-icons/fa";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -97,34 +98,42 @@ export default function Home() {
       id: 1,
       name: "Filip Stosik",
       designation: "Full-Stack-Entwickler",
-      image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+      image: "/me.png",
     },
   ];
 
   const projects = [
     {
       id: 1,
-      title: "E-Commerce-Plattform",
-      description: "Ein vollständiger Online-Shop mit Warenkorbfunktion und Zahlungsabwicklung.",
-      tags: ["Next.js", "Shopware", "Neos"],
+      title: "Mkm",
+      description: "Für die Kanzlei MKM wurde eine moderne Website mit Fokus auf klarer Struktur und responsivem Design entwickelt. Die Seite präsentiert Kanzleiprofil und Rechtsgebiete übersichtlich.",
+      tags: ["Next.js", "TypeScript", "Shopware", "Neos"],
       link: "https://mkm.legal/",
-      thumbnail: "/img.png",
+      thumbnail: "/img_mkm.png",
     },
     {
       id: 2,
-      title: "Aufgabenverwaltungs-App",
-      description: "Ein kollaborativer Aufgabenmanager mit Echtzeit-Updates.",
-      tags: ["Next.js", "Strapi"],
+      title: "Klima Unna",
+      description: "Diese Plattform informiert Bürgerinnen und Bürger über Klimaschutzmaßnahmen in Unna. Sie bietet interaktive Inhalte, Projektübersichten und Beteiligungsmöglichkeiten, alles optimiert für Desktop und mobile Geräte.",
+      tags: ["Next.js", "TypeScript", "Strapi"],
       link: "https://klima-unna.de/",
-      thumbnail: "/img_1.png",
+      thumbnail: "/img_klima.png",
     },
     {
       id: 3,
-      title: "KI-Bildgenerator",
-      description: "Generieren Sie benutzerdefinierte Bilder mit KI-Prompts und speichern Sie diese.",
-      tags: ["Next.js", "Neos"],
+      title: "Lebenszentrum",
+      description: "Die Website des Lebenszentrums stellt medizinische Angebote und Fachbereiche in einer strukturierten Übersicht dar. Sie richtet sich an Patienten und Angehörige und wurde für leichte Bedienbarkeit gestaltet.",
+      tags: ["Next.js", "TypeScript", "Neos"],
       link: "https://www.lebenszentrum-koenigsborn.de/",
-      thumbnail: "/img_2.png",
+      thumbnail: "/img_leben.png",
+    },
+    {
+      id: 4,
+      title: "Algorithmus-Visualisierung",
+      description: "Eine interaktive Web-App zur Visualisierung von Sortier- und Maze-Suchalgorithmen. Nutzer können eigene Szenarien erstellen und das Verhalten der Algorithmen Schritt für Schritt beobachten.",
+      tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+      link: "https://sortinng-algorithms-visualisation.netlify.app/sort",
+      thumbnail: "/img_algo.png",
     },
   ];
 
@@ -135,59 +144,97 @@ export default function Home() {
     { text: "Erfahrungen." },
   ];
 
-  const experienceContent = [
+  const experienceData = [
     {
-      title: "Senior Frontend-Entwickler",
-      company: "Tech Innovations GmbH",
-      period: "2021 - Heute",
-      description: "Leitung der Entwicklung einer SaaS-Plattform mit über 10.000 Kunden. Implementierung von Leistungsoptimierungen, die die Ladezeiten um 40% verbesserten und die Bundle-Größe um 35% reduzierten. Betreuung von Junior-Entwicklern und Etablierung von Frontend-Best Practices.",
+      title: "2022 - 2025",
       content: (
-          <div className="h-full w-full flex items-center justify-center text-white">
-            <Image
-                src="/images/experience1.jpg"
-                width={300}
-                height={300}
-                className="h-full w-full object-cover"
-                alt="Tech Innovations"
-            />
+          <div>
+
+            <p className="text-2xl">
+              Ausbildung zum Fachinformatiker für Anwendungsentwicklung
+            </p>
+            <Link href="https://alphanauten.de/" target="_blank" className="text-xl mb-8 text-gray-300 hover:underline">
+              <span className="text-base pr-1 ">bei</span> Alphanauten GmbH & Co. KG 🚀
+            </Link>
+            <p className="mb-8">
+              Schwerpunkt moderne Webentwicklung mit React, Next.js, Tailwind CSS, Shopware, Strapi und Neos CMS.
+              Entwicklung klassischer Websites sowie Headless- und E-Commerce-Lösungen.
+              Praktische Erfahrung mit REST APIs, komponentenbasierter Entwicklung, Deployment und agilem Arbeiten.
+            </p>
+            <div className="grid grid-cols-2 gap-4 ">
+              <Image
+                  src="/experience/alphanauten.png"
+                  alt="Alphanauten GmbH & Co. KG."
+                  width={300}
+                  height={300}
+                  className="w-full object-contain min-w-0 rounded-tr-lg rounded-bl-lg h-[269px]"
+              />
+            </div>
           </div>
       ),
     },
     {
-      title: "Full-Stack-Entwickler",
-      company: "Digital Solutions AG",
-      period: "2019 - 2021",
-      description: "Entwicklung und Wartung mehrerer Kunden-Websites und Webanwendungen. Erstellung eines benutzerdefinierten CMS, das die Aktualisierungszeit von Inhalten um 60% reduzierte. Integration von Drittanbieter-APIs und Implementierung von CI/CD-Pipelines für automatisierte Bereitstellungen.",
+      title: "2022",
       content: (
-          <div className="h-full w-full flex items-center justify-center text-white">
-            <Image
-                src="/images/experience2.jpg"
-                width={300}
-                height={300}
-                className="h-full w-full object-cover"
-                alt="Digital Solutions"
-            />
+          <div>
+            <p className="text-xl">
+              Auslandspraktikum (remote)
+            </p>
+            <Link href="https://www.ifcenter.de/" target="_blank" className="text-xl mb-8 text-gray-300 hover:underline">
+              <span className="text-base pr-1">bei</span>  International Formation Center, Madrid ⚽🍷🌞
+            </Link>
+            <p className="mb-8">
+              Entwicklung einer interaktiven Lern-App mit Kotlin für Android.
+              Erste Erfahrungen in App-Entwicklung, UI-Design, Navigation und strukturierter Inhaltsdarstellung.
+            </p>
+            <div className="grid grid-cols-2 gap-4">
+              <Image
+                  src="/experience/international.png"
+                  alt="International Formation Center, Madrid"
+                  width={300}
+                  height={300}
+                  className="w-full object-contain min-w-0 rounded-tr-lg rounded-bl-lg"
+              />
+            </div>
           </div>
       ),
     },
     {
-      title: "Webentwickler",
-      company: "Kreativ Agentur",
-      period: "2017 - 2019",
-      description: "Erstellung responsiver Websites für verschiedene Kunden aus unterschiedlichen Branchen. Zusammenarbeit mit Designern für pixelgenaue UI-Implementierungen. Optimierung von Websites für Leistung und SEO, was zu 25% schnelleren Ladezeiten führte.",
+      title: "2019 - 2020",
       content: (
-          <div className="h-full w-full flex items-center justify-center text-white">
-            <Image
-                src="/images/experience3.jpg"
-                width={300}
-                height={300}
-                className="h-full w-full object-cover"
-                alt="Kreativ Agentur"
-            />
+          <div>
+
+            <p className="text-xl">
+              Schulpraktikum
+            </p>
+            <Link href="https://kerf.de/" target="_blank" className="text-xl mb-8 text-gray-300 hover:underline">
+              <span className="text-base pr-1 ">bei</span>  Kerf  🕷🕸
+            </Link>
+            <p className="mb-8">
+              Pflege von Produkt- und Tierdaten und Kennenlernen der Abläufe im Onlinehandel.
+              Weckte meine Interesse an digitaler Produktverwaltung und Online-Shops.
+            </p>
+            <div className="grid grid-cols-2 gap-4">
+              <Image
+                  src="/experience/kerf_2.png"
+                  alt="Kerf"
+                  width={300}
+                  height={250}
+                  className="h-[270px] w-full object-contain min-w-0 rounded-tr-lg rounded-bl-lg"
+              />
+              <Image
+                  src="/experience/kerf.png"
+                  alt="Kerf"
+                  width={300}
+                  height={250}
+                  className="w-full object-contain min-w-0 rounded-tr-lg rounded-bl-lg "
+              />
+            </div>
           </div>
       ),
     },
   ];
+
 
   const navItems = [
     { name: "Über mich", link: "#about" },
@@ -204,7 +251,7 @@ export default function Home() {
           {/* --- Navbar ---*/}
           <Navbar className={" h-10 z-1000 w-fit mx-auto pt-10 "}>
             {/* Desktop Navigation */}
-            <NavBody className=" bg-gray-600/80 items-center h-10 w-fit px-10 fixed mx-auto left-1/2  transform -translate-x-1/2 ">
+            <NavBody className=" bg-gray-600/50 items-center h-10 w-fit px-10 fixed mx-auto left-1/2  transform -translate-x-1/2 ">
               <NavItems  items={navItems} />
             </NavBody>
 
@@ -244,10 +291,11 @@ export default function Home() {
                 <div className="flex flex-col gap-6 z-100">
                   <TypewriterEffect words={words} className="text-3xl md:text-4xl max-w-[600px] h-[144px]" />
                   <h1 className="text-5xl md:text-6xl font-bold">
-                    Hallo, ich bin <ColourfulText text={"Filip "}/> 👋
+                    Hi, ich bin <ColourfulText text={"Filip "}/> 👋
                   </h1>
                   <p className="text-lg text-neutral-300 leading-relaxed max-w-xl">
-                    Ich bin ein leidenschaftlicher Full-Stack-Entwickler, spezialisiert auf die Erstellung sauberer, leistungsstarker Webanwendungen. Mit über 5 Jahren Erfahrung bin ich Experte für React-Ökosysteme und moderne JavaScript-Frameworks.
+                    Nach meiner Ausbildung zum Fachinformatiker für Anwendungsentwicklung entwickle ich benutzerfreundliche Webanwendungen – gerne im Frontend, aber auch mit Blick aufs Backend.
+                    <br/> Ob React, Next.js oder Schnittstellenanbindung, ich lerne stetig dazu und bringe technisches Verständnis und Praxiserfahrung mit.
                   </p>
                   <div className="flex gap-4 mt-4">
                     <a href="/resume.pdf" download className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full flex items-center gap-2 transition-all shadow-lg hover:shadow-blue-500/30">
@@ -262,10 +310,11 @@ export default function Home() {
                   <div className="w-72 h-72 relative">
                     <BackgroundGradient className="rounded-full p-1" containerClassName="w-full h-full">
                       <AnimatedTooltip items={people} />
-                      <div className={"mt-10"}>test</div>
+                      <div className={"mt-10"}> Ich programmiere gern coole Web-Apps, besonders CMS-Seiten, und will mich als Frontend- oder Full-Stack-Entwickler richtig reinhauen. Neues lernen und Projekte rocken macht mir Spaß!</div>
                     </BackgroundGradient>
                   </div>
-                </div>
+
+              </div>
               </div>
             </section>
 
@@ -292,9 +341,9 @@ export default function Home() {
                   Einige meiner besten Arbeiten, die meine Fähigkeiten und Expertise in der Webentwicklung zeigen.
                 </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-[1352px] gap-y-10">
                 {projects.map((project) => (
-                    <CardContainer key={project.id}>
+                    <CardContainer className={"h-full py-0"} key={project.id}>
                       <CardBody className="bg-gray-800 relative group/card hover:shadow-2xl hover:shadow-blue-500/[0.2] border-white/[0.2] w-full h-full rounded-xl p-6 border">
                         <CardItem translateZ="50" className="text-xl font-bold text-neutral-50">
                           {project.title}
@@ -307,7 +356,7 @@ export default function Home() {
                               src={project.thumbnail}
                               height="1000"
                               width="1000"
-                              className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                              className="h-60 w-full object-contain min-w-0 rounded-tr-lg rounded-bl-lg"
                               alt={project.title}
                           />
                         </CardItem>
@@ -319,7 +368,7 @@ export default function Home() {
                           </span>
                             ))}
                           </CardItem>
-                          <CardItem translateZ={20} as="a" href={project.link} target="_blank" className="px-4 py-2 rounded-xl bg-white text-black text-xs font-bold">
+                          <CardItem translateZ={20} as="a" href={project.link} target="_blank" className="border border-neutral-600 hover:bg-neutral-800 px-3 py-2 rounded-full transition-all">
                             Ansehen
                           </CardItem>
                         </div>
@@ -339,7 +388,7 @@ export default function Home() {
                   Meine berufliche Reise durch innovative Unternehmen, bei denen ich zu spannenden Projekten beigetragen und meine Fähigkeiten verfeinert habe.
                 </p>
               </div>
-              <StickyScroll content={experienceContent} />
+              <Timeline data={experienceData} />
             </section>
 
             <hr className="border-neutral-800" />
