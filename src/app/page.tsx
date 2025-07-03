@@ -17,11 +17,10 @@ export const metadata: Metadata = {
     description: "Portfolio von Filip Stosik. Entdecken Sie meine Projekte, Fähigkeiten und Berufserfahrung in der Webentwicklung mit React, Next.js und mehr.",
     keywords: "Filip Stosik, Webentwicklung, React, Next.js, TypeScript, Portfolio",
     authors: [{ name: "Filip Stosik" }],
-    icons: {
-        icon: "/favicon.png",
-    },
+    // icons: {
+    //     icon: "/favicon.png",
+    // },
 };
-
 
 export default function Home() {
 
