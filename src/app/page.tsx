@@ -278,7 +278,7 @@ export default function Home() {
             </MobileNav>
           </Navbar>
 
-          <main className="mx-auto md:py-20 flex flex-col gap-20 items-center px-10">
+          <main className="mx-auto md:py-20 flex flex-col md:gap-20 items-center px-10">
             {/* --- Hero Section --- */}
             <section id="about" className="pt-10 md:pt-32 relative">
               <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
