@@ -115,7 +115,7 @@ export default function Home() {
     },
     {
       id: 3,
-      title: "Lebenszentrum",
+      title: "Lebenszentrum Königsborn",
       description: "Die Website des Lebenszentrums stellt medizinische Angebote und Fachbereiche in einer strukturierten Übersicht dar. Sie richtet sich an Patienten und Angehörige und wurde für leichte Bedienbarkeit gestaltet.",
       tags: ["Next.js", "TypeScript", "Neos"],
       link: "https://www.lebenszentrum-koenigsborn.de/",
