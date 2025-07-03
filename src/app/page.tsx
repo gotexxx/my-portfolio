@@ -155,7 +155,7 @@ export default function Home() {
               Entwicklung klassischer Websites sowie Headless- und E-Commerce-Lösungen.
               Praktische Erfahrung mit REST APIs, komponentenbasierter Entwicklung, Deployment und agilem Arbeiten.
             </p>
-            <div className="grid grid-cols-2 gap-4 ">
+            <div className="">
               <Image
                   src="/experience/alphanauten.png"
                   alt="Alphanauten GmbH & Co. KG."
@@ -181,7 +181,7 @@ export default function Home() {
               Entwicklung einer interaktiven Lern-App mit Kotlin für Android.
               Erste Erfahrungen in App-Entwicklung, UI-Design, Navigation und strukturierter Inhaltsdarstellung.
             </p>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="">
               <Image
                   src="/experience/international.png"
                   alt="International Formation Center, Madrid"
@@ -208,7 +208,7 @@ export default function Home() {
               Pflege von Produkt- und Tierdaten und Kennenlernen der Abläufe im Onlinehandel.
               Weckte meine Interesse an digitaler Produktverwaltung und Online-Shops.
             </p>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid lg:grid-cols-2 gap-4">
               <Image
                   src="/experience/kerf_2.png"
                   alt="Kerf"
@@ -278,9 +278,9 @@ export default function Home() {
             </MobileNav>
           </Navbar>
 
-          <main className="mx-auto py-20 flex flex-col gap-20 items-center px-10">
+          <main className="mx-auto md:py-20 flex flex-col gap-20 items-center px-10">
             {/* --- Hero Section --- */}
-            <section id="about" className="pt-24 md:pt-32 relative">
+            <section id="about" className="pt-10 md:pt-32 relative">
               <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
                 <div className="flex flex-col gap-6 z-100">
                   <TypewriterEffect words={words} className="text-3xl md:text-4xl max-w-[600px] h-[144px]" />
