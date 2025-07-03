@@ -5,22 +5,16 @@ import {
   ColourfulText,
   HoverEffect,
   TypewriterEffect,
-  StickyScroll,
   BackgroundGradient,
-  FloatingNav,
   AnimatedTooltip,
   BackgroundBeams,
   CardBody,
   CardContainer,
   CardItem,
-  PointerHighlight,
-  Meteors, BackgroundBeamsWithCollision,
   Navbar,
   NavBody,
   NavItems,
   MobileNav,
-  NavbarLogo,
-  NavbarButton,
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu, Timeline,
@@ -294,7 +288,7 @@ export default function Home() {
                     Hi, ich bin <ColourfulText text={"Filip "}/> 👋
                   </h1>
                   <p className="text-lg text-neutral-300 leading-relaxed max-w-xl">
-                    Nach meiner Ausbildung zum Fachinformatiker für Anwendungsentwicklung entwickle ich benutzerfreundliche Webanwendungen – gerne im Frontend, aber auch mit Blick aufs Backend.
+                    Nach meiner Ausbildung zum Fachinformatiker für Anwendungsentwicklung entwickle ich benutzerfreundliche Webanwendungen, gerne im Frontend, aber auch mit Blick aufs Backend.
                     <br/> Ob React, Next.js oder Schnittstellenanbindung, ich lerne stetig dazu und bringe technisches Verständnis und Praxiserfahrung mit.
                   </p>
                   <div className="flex gap-4 mt-4">
