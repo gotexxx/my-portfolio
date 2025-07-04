@@ -13,6 +13,9 @@ export const  SkillsSection = () => {
         { title: "Shopware", icon: "🛒", description: "Moderne E-Commerce-Plattform mit API-First-Ansatz." },
         { title: "Symfony", icon: "🎼", description: "PHP-Framework für strukturierte und skalierbare Webanwendungen." },
         { title: "Neos", icon: "🧠", description: "Content-Management mit Fokus auf Redaktion und Struktur." },
+        { title: "Git", icon: "🔧", description: "Versionskontrolle für kollaborative und nachvollziehbare Entwicklung." },
+        { title: "REST & GraphQL", icon: "🔌", description: "Datenabfrage und -übertragung zwischen Frontend und Backend." },
+        { title: "MySQL", icon: "🗄️", description: "Relationale Datenbank für strukturierte und performante Datenspeicherung." }
     ];
 
     return (

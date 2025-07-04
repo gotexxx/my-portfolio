@@ -27,7 +27,7 @@ export const ExperienceSection = () => {
                             alt="Alphanauten GmbH & Co. KG."
                             width={300}
                             height={300}
-                            className="w-full object-contain min-w-0 rounded-tr-lg rounded-bl-lg h-[269px]"
+                            className=" object-contain min-w-0 rounded-tr-lg rounded-bl-lg h-[269px]"
                         />
                     </div>
                 </div>
@@ -53,7 +53,7 @@ export const ExperienceSection = () => {
                             alt="International Formation Center, Madrid"
                             width={300}
                             height={300}
-                            className="w-full object-contain min-w-0 rounded-tr-lg rounded-bl-lg"
+                            className=" w-[500px] object-contain min-w-0 rounded-tr-lg rounded-bl-lg"
                         />
                     </div>
                 </div>
@@ -73,20 +73,13 @@ export const ExperienceSection = () => {
                         Pflege von Produkt- und Tierdaten und Kennenlernen der Abläufe im Onlinehandel.
                         Weckte meine Interesse an digitaler Produktverwaltung und Online-Shops.
                     </p>
-                    <div className="grid lg:grid-cols-2 gap-4">
-                        <Image
-                            src="/experience/kerf_2.png"
-                            alt="Kerf"
-                            width={300}
-                            height={250}
-                            className="h-[270px] w-full object-contain min-w-0 rounded-tr-lg rounded-bl-lg"
-                        />
+                    <div className="">
                         <Image
                             src="/experience/kerf.png"
                             alt="Kerf"
                             width={300}
                             height={250}
-                            className="w-full object-contain min-w-0 rounded-tr-lg rounded-bl-lg"
+                            className="h-[270px] object-contain min-w-0 rounded-tr-lg rounded-bl-lg bg-white w-fit"
                         />
                     </div>
                 </div>
