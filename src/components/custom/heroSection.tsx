@@ -52,8 +52,9 @@ export const  HeroSection = () => {
                         <BackgroundGradient className="rounded-full p-1" containerClassName="w-full h-full">
                             <AnimatedTooltip items={people} />
                             <div className="mt-10">
-                                Ich programmiere gern coole Web-Apps, besonders CMS-Seiten, und will mich als Frontend- oder
-                                Full-Stack-Entwickler richtig reinhauen. Neues lernen und Projekte rocken macht mir Spaß!
+                                Ich programmiere gern coole Web-Apps, besonders CMS-Seiten, und will mich als Frontend- oder Full-Stack-Entwickler beweisen.
+                                Ich möchte neues Lernen und erfreue mich an Projekten, bei denen ich mich weiterentwickeln kann.
+
                             </div>
                         </BackgroundGradient>
                     </div>
