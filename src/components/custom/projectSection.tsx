@@ -29,11 +29,20 @@ export const  ProjectsSection = () => {
             link: "https://www.lebenszentrum-koenigsborn.de/",
             thumbnail: "/img_leben.png",
         },
+
+        {
+            id: 5,
+            title: "Intuitech",
+            description: "Intuitech bietet smarte Lösungen für mehr Wohnkomfort von elektrischen Vorhangschienen und innenliegendem Sonnenschutz bis zu Alarmanlagen. Die Website präsentiert Produkte, Rundgänge und Beratung übersichtlich.",
+            tags: ["Next.js", "TypeScript", "Shopware"],
+            link: "https://intuitech.de/",
+            thumbnail: "/img_intuitech.png",
+        },
         {
             id: 4,
             title: "Algorithmus-Visualisierung",
             description: "Eine interaktive Web-App zur Visualisierung von Sortier- und Maze-Suchalgorithmen. Nutzer können eigene Szenarien erstellen und das Verhalten der Algorithmen Schritt für Schritt beobachten.",
-            tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+            tags: ["Next.js", "TypeScript"],
             link: "https://sortinng-algorithms-visualisation.netlify.app/sort",
             thumbnail: "/img_algo.png",
         },
