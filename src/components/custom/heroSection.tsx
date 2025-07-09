@@ -36,7 +36,7 @@ export const  HeroSection = () => {
                     </p>
                     <div className="flex gap-4 mt-4">
                         <a
-                            href="/resume.pdf"
+                            href="/Lebenslauf Filip Stosik.pdf"
                             download
                             className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full flex items-center gap-2 transition-all shadow-lg hover:shadow-blue-500/30"
                         >
