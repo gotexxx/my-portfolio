@@ -2,6 +2,7 @@
 
 import { ColourfulText, TypewriterEffect, BackgroundGradient, AnimatedTooltip } from "@/components";
 import { FaFileDownload } from "react-icons/fa";
+import { motion } from "motion/react";
 
 export const  HeroSection = () => {
     const words = [
@@ -22,7 +23,15 @@ export const  HeroSection = () => {
 
     return (
         <section id="about" className="pt-10 md:pt-32 relative">
-            <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+            <motion.div
+                animate={{
+                    opacity: 1,
+                    // @ts-ignore
+                    "@initial": { opacity: 0 },
+                    "@exit": { opacity: 0 }
+                }}
+                transition={{ duration: 0.3 }}
+                className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
                 <div className="flex flex-col gap-6 z-100">
                     <TypewriterEffect words={words} className="text-3xl md:text-4xl max-w-[600px] h-[144px]" />
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
@@ -59,7 +68,7 @@ export const  HeroSection = () => {
                         </BackgroundGradient>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 }
