@@ -126,7 +126,7 @@ export const ProjectsSection = () => {
               variants={cardVariants}
               whileHover="hover"
             >
-              <CardContainer className="h-full py-0">
+              <CardContainer className="h-full py-0 max-w-[450px]">
                 <CardBody className="bg-gray-800 relative group/card hover:shadow-2xl hover:shadow-blue-500/[0.2] border-white/[0.2] w-full h-full rounded-xl p-6 border">
                   <CardItem translateZ="50" className="text-xl font-bold text-neutral-50">
                     {project.title}

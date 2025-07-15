@@ -35,7 +35,7 @@ export const  HeroSection = () => {
                 <div className="flex flex-col gap-6 z-100">
                     <TypewriterEffect words={words} className="text-3xl md:text-4xl max-w-[600px] h-[144px]" />
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-                        Hi, ich bin <ColourfulText text={"Filip "} /> 👋
+                        Hi, ich bin Filip 👋
                     </h1>
                     <p className="text-lg text-neutral-300 leading-relaxed max-w-xl">
                         Nach meiner Ausbildung zum Fachinformatiker für Anwendungsentwicklung entwickle ich benutzerfreundliche
@@ -58,6 +58,7 @@ export const  HeroSection = () => {
                 </div>
                 <div className="flex justify-center items-center">
                     <div className="w-72 h-72 relative">
+                        {/*ki bild*/}
                         <BackgroundGradient className="rounded-full p-1" containerClassName="w-full h-full">
                             <AnimatedTooltip items={people} />
                             <div className="mt-10">
