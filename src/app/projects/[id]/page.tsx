@@ -5,38 +5,39 @@ import {Footer, NavbarSection, CardContainer, CardBody, CardItem} from "@/compon
 import type { Metadata, ResolvingMetadata } from 'next'
 
 type Props = {
-    params: Promise<{
+    params: {
         id: string;
-        slug: any ;
-    }>
+        slug?: any;
+    }
 }
 
 export async function generateMetadata(
     { params }: Props,
     parent: ResolvingMetadata
 ): Promise<Metadata> {
-    const slug = (await params)
-    const projectId = parseInt(slug.id, 10);
+    const resolvedParams = await params;
+    const projectId = parseInt(resolvedParams.id, 10);
     const project = projects.find((p) => p.id === projectId);
     if (!project) {
-        return  {
+        return {
             title: "not found",
             description: "not found",
-        }
+        };
     }
     return {
         title: `${project.title} - Projekt`,
         description: project.description,
-    }
+    };
 }
 
 
-export default function ProjectPage({params}: { params: { id: string } }) {
-    const projectId = parseInt(params.id, 10);
+
+export default async  function ProjectPage({ params }: { params: { id: string } }) {
+
+    const resolvedParams = await params;
+    const projectId = parseInt(resolvedParams.id, 10);
     const project = projects.find((p) => p.id === projectId);
-    if (!project) {
-        notFound();
-    }
+    if (!project) notFound();
 
     const navItems = [
         {name: "🏠 Startseite", link: "/"},
