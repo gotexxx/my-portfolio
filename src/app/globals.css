@@ -178,4 +178,25 @@
   body {
     @apply bg-background text-foreground;
   }
+
+
+  @keyframes border-glow {
+    0% {
+      box-shadow: 0 0 5px #173061;
+      border-color: #173061;
+    }
+    50% {
+      box-shadow: 0 0 20px #22478f, 0 0 30px #22478f;
+      border-color: #22478f;
+    }
+    100% {
+      box-shadow: 0 0 5px #173061;
+      border-color: #173061;
+    }
+  }
+
+  .hover-glow-animation:hover {
+    animation: border-glow 1.5s ease-in-out infinite;
+  }
 }
+

@@ -14,7 +14,7 @@ export const  NavbarSection =({navItems}: any)  => {
 
 
     return (
-        <Navbar className={" h-10 z-1000 w-fit mx-auto pt-10 "}>
+        <Navbar className={"z-1000 pt-10 w-fit mx-auto "}>
             {/* Desktop Navigation */}
             <NavBody className=" bg-gray-600/50 items-center h-10 w-fit px-10 fixed mx-auto left-1/2  transform -translate-x-1/2 ">
                 <NavItems  items={navItems} />

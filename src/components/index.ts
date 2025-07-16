@@ -18,7 +18,6 @@ export * from "@/components/aceternity/background-beams-with-collision";
 export * from "@/components/aceternity/background-gradnient-animation";
 export * from "@/components/aceternity/resizable-navbar";
 export * from "@/components/aceternity/timeline";
-export * from "@/components/aceternity/timeline";
 
 
 export * from "@/components/custom/contactSection";

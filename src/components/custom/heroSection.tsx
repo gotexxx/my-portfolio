@@ -1,49 +1,63 @@
 "use client"
 
-import { ColourfulText, TypewriterEffect, BackgroundGradient, AnimatedTooltip } from "@/components";
-import { FaFileDownload } from "react-icons/fa";
-import { motion } from "motion/react";
+import {TypewriterEffect} from "@/components";
+import {FaFileDownload} from "react-icons/fa";
+import {motion} from "motion/react";
+import Image from "next/image";
 
-export const  HeroSection = () => {
+export const HeroSection = () => {
     const words = [
-        { text: "Entwickeln" },
-        { text: "beeindruckende" },
-        { text: "digitale", className: "text-blue-500" },
-        { text: "Erfahrungen." },
-    ];
-
-    const people = [
-        {
-            id: 1,
-            name: "Filip Stosik",
-            designation: "Full-Stack-Entwickler",
-            image: "/me.png",
-        },
+        {text: " Hi,"},
+        {text: "ich"},
+        {text: "heiße"},
+        {text: "Filip,"},
+        {text: "aber"},
+        {text: "auch"},
+        {text: "dich"},
+        {text: "willkommen"},
+        {text: "zu."},
+        {text: "meinem"},
+        {text: "Portfolio!"},
     ];
 
     return (
-        <section id="about" className="pt-10 md:pt-32 relative">
+        <section id="about" className="pt-10  relative">
             <motion.div
                 animate={{
                     opacity: 1,
                     // @ts-ignore
-                    "@initial": { opacity: 0 },
-                    "@exit": { opacity: 0 }
+                    "@initial": {opacity: 0},
+                    "@exit": {opacity: 0}
                 }}
-                transition={{ duration: 0.3 }}
-                className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+                transition={{duration: 0.3}}
+                className="grid grid-cols-1   items-center gap-12">
+
+                <div className="flex justify-center items-center order-first md:order-none">
+                    <div className="relative group">
+                        <div
+                            className="border-8 border-gray-800 rounded-full p-5 hover-glow-animation"
+                        >
+                            <Image
+                                src="/me.png"
+                                alt="International Formation Center, Madrid"
+                                width={230}
+                                height={230}
+                                className="rounded-full z-[10001]"
+                            />
+                        </div>
+                    </div>
+                </div>
+
                 <div className="flex flex-col gap-6 z-100">
-                    <TypewriterEffect words={words} className="text-3xl md:text-4xl max-w-[600px] h-[144px]" />
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-                        Hi, ich bin Filip 👋
-                    </h1>
-                    <p className="text-lg text-neutral-300 leading-relaxed max-w-xl">
-                        Nach meiner Ausbildung zum Fachinformatiker für Anwendungsentwicklung entwickle ich benutzerfreundliche
-                        Webanwendungen, gerne im Frontend, aber auch mit Blick aufs Backend.
-                        <br /> Ob React, Next.js oder Schnittstellenanbindung, ich lerne stetig dazu und bringe technisches Verständnis
-                        und Praxiserfahrung mit.
-                    </p>
-                    <div className="flex gap-4 mt-4">
+                    <div className=" w-full h-[80px] md:w-[610px] md:h-[160px]">
+                        <div className="w-full h-full">
+                            <TypewriterEffect
+                                className="w-full text-2xl sm:text-3xl md:text-4xl"
+                                words={words}
+                            />
+                        </div>
+                    </div>
+                    <div className="flex gap-4">
                         <a
                             href="/Lebenslauf Filip Stosik.pdf"
                             download
@@ -51,22 +65,12 @@ export const  HeroSection = () => {
                         >
                             <FaFileDownload /> Lebenslauf
                         </a>
-                        <a href="#contact" className="border border-neutral-600 hover:bg-neutral-800 px-6 py-3 rounded-full transition-all">
+                        <a
+                            href="#contact"
+                            className="border border-neutral-600 hover:bg-neutral-800 px-6 py-3 rounded-full transition-all"
+                        >
                             Kontaktieren Sie mich
                         </a>
-                    </div>
-                </div>
-                <div className="flex justify-center items-center">
-                    <div className="w-72 h-72 relative">
-                        {/*ki bild*/}
-                        <BackgroundGradient className="rounded-full p-1" containerClassName="w-full h-full">
-                            <AnimatedTooltip items={people} />
-                            <div className="mt-10">
-                                Ich programmiere gern coole Web-Apps, besonders CMS-Seiten, und will mich als Frontend- oder Full-Stack-Entwickler beweisen.
-                                Ich möchte neues Lernen und erfreue mich an Projekten, bei denen ich mich weiterentwickeln kann.
-
-                            </div>
-                        </BackgroundGradient>
                     </div>
                 </div>
             </motion.div>

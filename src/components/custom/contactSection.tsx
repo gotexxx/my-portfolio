@@ -35,7 +35,6 @@ export const ContactSection = () => {
         hover: {scale: 1.2, rotate: 5, transition: {duration: 0.2}},
     };
 
-    console.log(isInView)
     return (
         <AnimatePresence>
             <motion.section

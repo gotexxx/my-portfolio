@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils/cn";
-import { motion, stagger, useAnimate, useInView } from "motion/react";
-import { useEffect } from "react";
+import {cn} from "@/lib/utils/cn";
+import {motion, stagger, useAnimate, useInView} from "motion/react";
+import {useEffect} from "react";
 
 export const TypewriterEffect = ({
                                      words,
@@ -46,27 +46,27 @@ export const TypewriterEffect = ({
 
     const renderWords = () => {
         return (
-            <motion.div ref={scope} className="inline">
-                {wordsArray.map((word, idx) => {
-                    return (
-                        <div key={`word-${idx}`} className="inline-block">
-                            {word.text.map((char, index) => (
-                                <motion.span
-                                    initial={{}}
-                                    key={`char-${index}`}
-                                    className={cn(
-                                        `text-white  opacity-0 hidden`,
-                                        word.className
-                                    )}
-                                >
-                                    {char}
-                                </motion.span>
-                            ))}
-                            &nbsp;
-                        </div>
-                    );
-                })}
-            </motion.div>
+                <motion.div ref={scope} className="inline">
+                    {wordsArray.map((word, idx) => {
+                        return (
+                            <div key={`word-${idx}`} className="inline-block">
+                                {word.text.map((char, index) => (
+                                    <motion.span
+                                        initial={{}}
+                                        key={`char-${index}`}
+                                        className={cn(
+                                            `text-white  opacity-0 hidden`,
+                                            word.className
+                                        )}
+                                    >
+                                        {char}
+                                    </motion.span>
+                                ))}
+                                &nbsp;
+                            </div>
+                        );
+                    })}
+                </motion.div>
         );
     };
     return (
@@ -162,7 +162,8 @@ export const TypewriterEffectSmooth = ({
                     }}
                 >
                     {renderWords()}{" "}
-                </div>{" "}
+                </div>
+                {" "}
             </motion.div>
             <motion.span
                 initial={{

@@ -7,7 +7,7 @@ import {useRef} from "react";
 export const SkillsSection = () => {
 
     const ref = useRef(null);
-    const isInView = useInView(ref, {once: true, amount: 0.1});
+    const isInView = useInView(ref, {once: true, amount: 0.001});
 
     const groupedSkills = {
         Frontend: [

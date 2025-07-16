@@ -7,12 +7,7 @@ import { useRef, useEffect } from "react";
 
 export const ProjectsSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 }); // Trigger when 20% of section is visible
-
-  // Debug to confirm isInView changes
-  useEffect(() => {
-    console.log("ProjectsSection isInView:", isInView);
-  }, [isInView]);
+  const isInView = useInView(ref, { once: true, amount: 0.01 }); // Trigger when 20% of section is visible
 
   const projects = [
     {
