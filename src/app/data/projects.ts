@@ -3,14 +3,23 @@ export const projects = [
         "id": 1,
         "title": "Mkm",
         "description": "Für die Kanzlei MKM wurde eine moderne Website mit Fokus auf klarer Struktur und responsivem Design entwickelt. Die Seite präsentiert Kanzleiprofil und Rechtsgebiete übersichtlich.",
-        "tags": ["Next.js", "TypeScript", "Shopware", "Neos", "React"],
+        "tags": ["Next.js", "Shopware", "Neos"],
         "link": "https://mkm.legal/",
         "githubLink": null,
-        "thumbnail": "/img_mkm.png",
+        "thumbnail": "/project/mkm/hero.png",
         "gallery": [
-            "/img_mkm_feature1.png",
-            "/img_mkm_feature2.png",
-            "/img_mkm_contact.png",
+            {
+                "img": "/project/mkm/1.png",
+                "description": "Headless-Integration von Shopware mit vollständig angebundenem Warenkorb- und Bestellsystem"
+            },
+            {
+                "img": "/project/mkm/2.png",
+                "description": "CMS-basierter Blog mit anpassbaren Beiträgen und strukturierter Darstellung"
+            },
+            {
+                "img": "/project/mkm/3.png",
+                "description": "DSGVO-konforme YouTube-Einbindung mit Benutzerzustimmung"
+            }
         ],
         "role": "Fullstack-Entwickler",
         "challenge": "Die größte Herausforderung bestand in der Entwicklung eines Headless Shopware-Systems mit Warenkorb- und Produktkaufseiten unter Berücksichtigung der DSGVO-Richtlinien. Zusätzlich musste eine nahtlose Integration zwischen Neos CMS und Shopware implementiert werden. Erhebliche Performance-Probleme mit der Cache-Revalidierung führten zu Systemabstürzen.",
@@ -31,9 +40,20 @@ export const projects = [
         "tags": ["Next.js", "TypeScript", "Strapi"],
         "link": "https://klima-unna.de/",
         "githubLink": null,
-        "thumbnail": "/img_klima.png",
+        "thumbnail": "/project/klima/hero.png",
         "gallery": [
-            // Hier können Sie selbst Bilder hinzufügen
+            {
+                "img": "/project/klima/1.png",
+                "description": "Interaktive Karte mit Projektmarkern basierend auf React Leaflet"
+            },
+            {
+                "img": "/project/klima/2.png",
+                "description": "Projektübersicht mit integrierter Vorlesefunktion für Barrierefreiheit"
+            },
+            {
+                "img": "/project/klima/3.png",
+                "description": "Formular zur Einreichung neuer Klimaschutzprojekte durch Nutzer:innen"
+            }
         ],
         "role": "Fullstack-Entwickler",
         "challenge": "Die Hauptherausforderungen lagen in der Instabilität der lokalen Live-Vorschau sowie in CORS-Problemen bei der Verbindung zwischen Frontend und Backend. Zusätzlich musste die Plattform umfassende Barrierefreiheitsstandards erfüllen.",
@@ -46,16 +66,24 @@ export const projects = [
             "Responsive Design für optimale Nutzung auf allen Endgeräten"
         ],
         "learned": "Die Arbeit an 'Klima Unna' hat mir die Bedeutung von zugänglichen und interaktiven Inhalten für die Bürgerbeteiligung verdeutlicht. Durch die Anbindung von Strapi als Headless CMS konnte ich flexible und leicht zu verwaltende Inhaltsstrukturen schaffen. Die Implementierung umfassender Barrierefreiheitsfeatures hat mein Bewusstsein für inklusive Webentwicklung geschärft, während die Lösung der CORS-Probleme meine Fähigkeiten in der Serverkonfiguration verbessert hat."
-    },{
+    },
+    {
         "id": 3,
         "title": "Lebenszentrum Königsborn",
         "description": "Die Website des Lebenszentrums stellt medizinische Angebote und Fachbereiche in einer strukturierten Übersicht dar. Sie richtet sich an Patienten und Angehörige und wurde für leichte Bedienbarkeit gestaltet.",
         "tags": ["Next.js", "TypeScript", "Neos"],
         "link": "https://www.lebenszentrum-koenigsborn.de/",
         "githubLink": null,
-        "thumbnail": "/img_leben.png",
+        "thumbnail": "/project/leben/hero.png",
         "gallery": [
-            // Hier können Sie selbst Bilder hinzufügen
+            {
+                "img": "/project/leben/1.png",
+                "description": "Darstellung des Sozialpädiatrischen Zentrums als Beispiel einer medizinischen Einrichtung"
+            },
+            {
+                "img": "/project/leben/2.png",
+                "description": "Informationsseite zum Sozialpädiatrischen Zentrum in Leichter Sprache"
+            }
         ],
         "role": "Fullstack-Entwickler & Support",
         "challenge": "Die Hauptaufgabe bestand darin, eine vollständig barrierefreie Website für den Gesundheitsbereich zu entwickeln, die sowohl für Patienten als auch für Angehörige zugänglich und leicht verständlich ist. Besonderes Augenmerk lag auf der Implementierung einer Option für leichte Sprache und einer klaren Struktur für medizinische Informationen.",
@@ -76,10 +104,18 @@ export const projects = [
         "tags": ["Next.js", "TypeScript", "Shopware"],
         "link": "https://intuitech.de/",
         "githubLink": null,
-        "thumbnail": "/img_intuitech.png",
+        "thumbnail": "/project/intuitech/hero.png",
         "gallery": [
-            // Hier können Sie selbst Bilder hinzufügen
+            {
+                "img": "/project/intuitech/1.png",
+                "description": "Vergleich zweier Bilder per Slider: Beim Bewegen des Reglers wird ein Bild dynamisch durch das andere ersetzt"
+            },
+            {
+                "img": "/project/intuitech/2.png",
+                "description": "Produktkatalog im individuell gestalteten Shopware-6-Theme"
+            }
         ],
+
         "role": "Fullstack-Entwickler",
         "challenge": "Die größte Herausforderung bestand in der Performance-Optimierung bei der Verbindung von Shopware mit Neos. Aufgrund der hohen Anzahl an Produkten wurde die maximale Ladezeit regelmäßig überschritten, was zu Leistungsproblemen führte. Zusätzlich musste eine nahtlose E-Commerce-Erfahrung mit barrierefreiem Design geschaffen werden.",
         "solution": "Durch die Implementierung einer Ladebegrenzung, die nur die 30 relevantesten Produkte pro Abfrage lädt, konnte die Performance deutlich verbessert werden. Die Integration erfolgte über eine maßgeschneiderte PHP-basierte Neos-Anwendung. Ein responsives Design und ein angepasstes Shopware 6-Theme sorgten für eine optimale Darstellung auf allen Endgeräten.",
@@ -96,12 +132,23 @@ export const projects = [
         "id": 5,
         "title": "Algorithmus-Visualisierung",
         "description": "Eine interaktive Web-App zur Visualisierung von Sortier- und Maze-Suchalgorithmen. Nutzer können eigene Szenarien erstellen und das Verhalten der Algorithmen Schritt für Schritt beobachten.",
-        "tags": ["Next.js", "TypeScript", "Algorithmen", "React"],
-        "link": "https://sortinng-algorithms-visualisation.netlify.app/sort",
+        "tags": ["Next.js", "TypeScript", "React"],
+        "link": "https://sortinng-algorithms-visualisation.netlify.app",
         "githubLink": "https://github.com/gotexxx/algorithm-visualization",
-        "thumbnail": "/img_algo.png",
+        "thumbnail": "/project/algo/hero.png",
         "gallery": [
-            // Hier können Sie selbst Bilder hinzufügen
+            {
+                "img": "/project/algo/1.png",
+                "description": "Labyrinthlöser mit visueller Pfadfindung"
+            },
+            {
+                "img": "/project/algo/2.png",
+                "description": "Schrittweise Visualisierung des Quicksort-Algorithmus"
+            },
+            {
+                "img": "/project/algo/3.png",
+                "description": "Darstellung des Bubblesort-Vorgangs mit animierten Vergleichen"
+            }
         ],
         "role": "Einzelentwickler",
         "challenge": "Die größte Herausforderung bestand in der eigenständigen Entwicklung komplexer Algorithmen, insbesondere des Labyrinthlösers und des Labyrintherstellungsprozesses. Die Visualisierung der algorithmischen Prozesse in Echtzeit und die Umsetzung einer intuitiven Benutzeroberfläche stellten weitere Hürden dar.",

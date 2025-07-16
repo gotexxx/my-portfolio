@@ -1,8 +1,35 @@
 import {projects} from "@/app/data/projects";
 import Image from "next/image";
 import {notFound} from "next/navigation";
-import {Footer, NavbarSection} from "@/components";
-import { FaGithub } from "react-icons/fa"; // Beispiel für ein Icon
+import {Footer, NavbarSection, CardContainer, CardBody, CardItem} from "@/components";
+import type { Metadata, ResolvingMetadata } from 'next'
+
+type Props = {
+    params: Promise<{
+        id: string;
+        slug: any ;
+    }>
+}
+
+export async function generateMetadata(
+    { params }: Props,
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+    const slug = (await params)
+    const projectId = parseInt(slug.id, 10);
+    const project = projects.find((p) => p.id === projectId);
+    if (!project) {
+        return  {
+            title: "not found",
+            description: "not found",
+        }
+    }
+    return {
+        title: `${project.title} - Projekt`,
+        description: project.description,
+    }
+}
+
 
 export default function ProjectPage({params}: { params: { id: string } }) {
     const projectId = parseInt(params.id, 10);
@@ -12,84 +39,174 @@ export default function ProjectPage({params}: { params: { id: string } }) {
     }
 
     const navItems = [
-        {name: "Startseite", link: "/"},
+        {name: "🏠 Startseite", link: "/"},
+        {name: "Projektbeschreibung", link: "#description"},
+        {name: "Herausforderung", link: "#challenge"},
+        {name: "Galerie", link: "#gallerie"},
+        {name: "Erkenntnisse", link: "#findings"},
     ];
 
     return (
-        <div className="relative z-10">
+        <div className="relative min-h-screen  overflow-hidden">
             <NavbarSection navItems={navItems}/>
 
-            <div className="max-w-5xl mx-auto px-4">
-                {/* --- Thumbnail & Titel --- */}
-                <div className="relative my-20">
+            <div className="max-w-6xl mx-auto px-4 pb-20 relative z-10">
+
+                <div className="relative my-16 md:my-24 group">
+                    <h1 className={"text-3xl md:text-4xl lg:text-6xl font-bold  text-center pb-10"}>
+                        {project.title}
+                    </h1>
                     <Image
                         src={project.thumbnail}
                         alt={project.title}
                         width={1200}
                         height={720}
-                        className="w-full h-auto object-cover rounded-2xl shadow-2xl border border-neutral-700"
+                        className="w-full h-auto object-cover rounded-2xl shadow-2xl"
                         priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-2xl"/>
-                    <h1 className="absolute bottom-6 left-6 text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg">
-                        {project.title}
-                    </h1>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-                    <div className="md:col-span-2">
-                        <h2 className="text-2xl font-semibold text-white mb-4">Projektbeschreibung</h2>
-                        <p className="text-neutral-300 leading-relaxed mb-8">{project.description}</p>
+                    <div className="md:col-span-2 space-y-12">
+                        <section id="description">
+                            <h2 className="text-3xl font-bold mb-6 text-white flex items-center">
+                                <span
+                                    className="bg-gradient-to-r from-blue-500 to-cyan-300 w-3 h-3 rounded-full mr-3"></span>
+                                Projektbeschreibung
+                            </h2>
+                            <p className="text-whiteleading-relaxed text-lg">
+                                {project.description}
+                            </p>
+                        </section>
 
-                        <h2 className="text-2xl font-semibold text-white mb-4">Meine Rolle</h2>
-                        <p className="text-neutral-300 leading-relaxed mb-8">{project.role}</p>
+                        <section id="role">
+                            <h2 className="text-3xl font-bold mb-6 text-white flex items-center">
+                                <span
+                                    className="bg-gradient-to-r from-emerald-500 to-green-300 w-3 h-3 rounded-full mr-3"></span>
+                                Meine Rolle
+                            </h2>
+                            <p className="text-text-white leading-relaxed text-lg">
+                                {project.role}
+                            </p>
+                        </section>
 
-                        <h2 className="text-2xl font-semibold text-white mb-4">Herausforderung & Lösung</h2>
-                        <p className="text-neutral-300 leading-relaxed mb-4"><strong className="text-white">Herausforderung:</strong> {project.challenge}</p>
-                        <p className="text-neutral-300 leading-relaxed mb-8"><strong className="text-white">Lösung:</strong> {project.solution}</p>
+                        <section id="challenge">
+                            <h2 className="text-3xl font-bold mb-6 text-white flex items-center">
+                                <span
+                                    className="bg-gradient-to-r from-amber-500 to-yellow-300 w-3 h-3 rounded-full mr-3"></span>
+                                Herausforderung & Lösung
+                            </h2>
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div className="bg-gray-800  p-6 rounded-xl border border-white/[0.2] ">
+                                    <h3 className="text-xl font-semibold text-rose-400 mb-3">Herausforderung</h3>
+                                    <p className="text-white">{project.challenge}</p>
+                                </div>
+                                <div className="bg-gray-800  p-6 rounded-xl border border-white/[0.2] ">
+                                    <h3 className="text-xl font-semibold text-emerald-400 mb-3">Lösung</h3>
+                                    <p className="text-white">{project.solution}</p>
+                                </div>
+                            </div>
+                        </section>
 
-                        <h2 className="text-2xl font-semibold text-white mb-4">Kernfunktionen</h2>
-                        <ul className="list-disc list-inside text-neutral-300 space-y-2 mb-8">
-                            {project?.features?.map(feature => <li key={feature}>{feature}</li>)}
-                        </ul>
-                        <h2 className="text-2xl font-semibold text-white mb-4">Galerie</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                            {project.gallery?.map((img, index) => (
-                                <Image
-                                    key={index}
-                                    src={img}
-                                    alt={`${project.title} Screenshot ${index + 1}`}
-                                    width={800}
-                                    height={600}
-                                    className="rounded-lg shadow-lg border border-neutral-700"
-                                />
-                            ))}
-                        </div>
+                        <section id="core">
+                            <h2 className="text-3xl font-bold mb-6 text-white flex items-center">
+                                <span
+                                    className="bg-gradient-to-r from-purple-500 to-fuchsia-300 w-3 h-3 rounded-full mr-3"></span>
+                                Kernfunktionen
+                            </h2>
+                            <ul className="grid md:grid-cols-2 gap-4">
+                                {project?.features?.map((feature, index) => (
+                                    <li
+                                        key={feature}
+                                        className="flex items-start bg-gray-800  p-4 rounded-lg border border-white/[0.2] "
+                                    >
+                                        <span className="text-blue-400 mr-2 text-lg">▹</span>
+                                        <span className="text-white">{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </section>
 
-                        <h2 className="text-2xl font-semibold text-white mb-4">Was ich gelernt habe</h2>
-                        <div className="prose prose-invert max-w-none text-neutral-300">
-                            <p>{project.learned}</p>
-                        </div>
+                        <section id="gallerie">
+                            <h2 className="text-3xl font-bold mb-6 text-white flex items-center">
+                                <span
+                                    className="bg-gradient-to-r from-cyan-500 to-sky-300 w-3 h-3 rounded-full mr-3"></span>
+                                Galerie
+                            </h2>
+                            <div className="grid grid-cols-1 gap-6">
+                                {project.gallery?.map((item, index) => (
+                                    <div
+                                        key={index}
+                                        className="my-12 flex flex-col gap-6 bg-gray-800 p-6 rounded-xl shadow-lg"
+                                    >
+                                        <p className="text-xl font-medium text-neutral-300">{item.description}</p>
+                                        <div className="w-full overflow-hidden rounded-lg">
+                                            <Image
+                                                src={item.img}
+                                                width={1000}
+                                                height={1000}
+                                                alt={item.description}
+                                                className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
+                                            />
+                                        </div>
+                                    </div>
+                                ))}
+
+
+                            </div>
+                        </section>
+
+                        <section id="findings">
+                            <h2 className="text-3xl font-bold mb-6 text-white flex items-center">
+                                <span
+                                    className="bg-gradient-to-r from-violet-500 to-purple-300 w-3 h-3 rounded-full mr-3"></span>
+                                Erkenntnisse
+                            </h2>
+                            <div
+                                className="text-white leading-relaxed text-lg bg-gray-800 p-6 rounded-xl border border-white/[0.2] ">
+                                {project.learned}
+                            </div>
+                        </section>
                     </div>
 
-                    {/* --- Seitenleiste (rechts) --- */}
                     <div className="md:col-span-1">
-                        <div className="sticky top-28 p-6 bg-neutral-900 rounded-2xl border border-neutral-800 shadow-xl">
-                            <h3 className="text-xl font-semibold text-white mb-4">Technologien</h3>
-                            <div className="flex flex-wrap gap-2 mb-8">
-                                {project.tags.map((tag) => (
-                                    <span key={tag} className="px-3 py-1 bg-neutral-800 text-neutral-200 rounded-full text-sm font-medium">
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
+                        <div
+                            className="sticky top-32 p-1 rounded-2xl  ">
+                            <div className="bg-gray-800 rounded-xl p-6 border border-white/[0.2]  relative">
+                                <h3 className="text-2xl font-bold text-white mb-6 pb-2 border-b border-white/[0.2] ">
+                                    Projekt Details
+                                </h3>
 
-                            <div className="flex flex-col space-y-4">
-                                <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition-all shadow-lg">
-                                    Projekt ansehen
-                                    <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                                </a>
+                                <div className="mb-8">
+                                    <h4 className="text-lg font-semibold text-neutral-300 mb-3">
+                                        Technologien
+                                    </h4>
+                                    <div className="flex flex-wrap gap-2">
+                                        {project.tags.map((tag,index) => (
+                                            <span
+                                                 key={index}
+                                                className="px-3 py-1.5 bg-gray-600 text-neutral-200 rounded-full text-sm font-medium">
+                          {tag}
+                        </span>
+                                        ))}
+                                    </div>
+                                </div>
 
+                                <div className="flex flex-col space-y-4">
+                                    <a
+                                        href={project.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center justify-center px-6 py-3 rounded-full font-bold text-lg bg-gradient-to-r from-neutral-800 to-gray-900 hover:from-neutral-700  hover:to-gray-850 transition-all duration-300 shadow-lg"
+                                    >
+                                        Projekt ansehen
+                                        <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor"
+                                             viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
