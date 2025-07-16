@@ -11,12 +11,9 @@ export const HeroSection = () => {
         {text: "ich"},
         {text: "heiße"},
         {text: "Filip,"},
-        {text: "aber"},
-        {text: "auch"},
-        {text: "dich"},
-        {text: "willkommen"},
-        {text: "zu."},
-        {text: "meinem"},
+        {text: "willkommen "},
+        {text: "auf "},
+        {text: "meinem "},
         {text: "Portfolio!"},
     ];
 
@@ -49,7 +46,7 @@ export const HeroSection = () => {
                 </div>
 
                 <div className="flex flex-col gap-6 z-100">
-                    <div className=" w-full h-[80px] md:w-[610px] md:h-[160px]">
+                    <div className=" w-full h-[80px] md:w-[610px] lg:h-[160px]">
                         <div className="w-full h-full">
                             <TypewriterEffect
                                 className="w-full text-2xl sm:text-3xl md:text-4xl"
