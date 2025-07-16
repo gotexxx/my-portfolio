@@ -30,8 +30,6 @@ export default function Home() {
     ];
 
     return (
-        <MountingWrapper>
-            <div className="relative min-h-screen bg-gray-900 text-white overflow-x-hidden">
                 <div className="relative z-10">
                     <NavbarSection navItems={navItems}/>
                     <main className="mx-auto md:py-20 flex flex-col md:gap-20 items-center px-10">
@@ -47,7 +45,5 @@ export default function Home() {
                     </main>
                     <Footer/>
                 </div>
-            </div>
-        </MountingWrapper>
     );
 }
