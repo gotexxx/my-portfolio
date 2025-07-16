@@ -5,18 +5,15 @@ import {Footer, NavbarSection, CardContainer, CardBody, CardItem} from "@/compon
 import type { Metadata, ResolvingMetadata } from 'next'
 
 type Props = {
-    params: {
-        id: string;
-        slug?: any;
-    }
-}
+    params: Promise<{ id: string; slug?: any }>;
+};
 
 export async function generateMetadata(
     { params }: Props,
     parent: ResolvingMetadata
 ): Promise<Metadata> {
-    const resolvedParams = await params;
-    const projectId = parseInt(resolvedParams.id, 10);
+    const { id } = await params; // Unwrap the Promise
+    const projectId = parseInt(id, 10);
     const project = projects.find((p) => p.id === projectId);
     if (!project) {
         return {
@@ -30,12 +27,13 @@ export async function generateMetadata(
     };
 }
 
+type PageProps = {
+    params: Promise<{ id: string }>;
+};
 
-
-export default async  function ProjectPage({ params }: { params: { id: string } }) {
-
-    const resolvedParams = await params;
-    const projectId = parseInt(resolvedParams.id, 10);
+export default async function ProjectPage({ params }: PageProps) {
+    const { id } = await params;
+    const projectId = parseInt(id, 10);
     const project = projects.find((p) => p.id === projectId);
     if (!project) notFound();
 
