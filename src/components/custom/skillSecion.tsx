@@ -80,10 +80,9 @@ export const SkillsSection = () => {
         visible: {
             opacity: 1,
             transition: {
-                duration: 0.5,
+                duration: 0.2,
                 ease: "easeOut",
                 when: "beforeChildren",
-                staggerChildren: 0.2,
             },
         },
         exit: {opacity: 0, transition: {duration: 0.3, ease: "easeIn"}},
@@ -94,11 +93,11 @@ export const SkillsSection = () => {
         visible: {opacity: 1, y: 0, scale: 1, transition: {duration: 0.4, ease: "easeOut"}},
     };
 
+
     return (
         <AnimatePresence>
             <motion.section
-                ref={ref}
-                animate={isInView ? "visible" : "hidden"}
+                animate={"visible"}
                 // @ts-ignore
                 variants={containerVariants}
                 initial="hidden"
@@ -117,6 +116,13 @@ export const SkillsSection = () => {
                         erwecken.
                     </p>
                 </motion.div>
+                <motion.div
+                ref={ref}
+                    // @ts-ignore
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
+                transition={{duration: 0.3}}
+                >
                 {Object.entries(groupedSkills).map(([category, items]) => (
                     <motion.div
                         key={category}
@@ -127,6 +133,7 @@ export const SkillsSection = () => {
                         <HoverEffect items={items}/>
                     </motion.div>
                 ))}
+                </motion.div>
             </motion.section>
         </AnimatePresence>
     );

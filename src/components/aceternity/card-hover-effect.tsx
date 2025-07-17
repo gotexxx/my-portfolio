@@ -2,7 +2,8 @@
 import { cn } from "@/lib/utils/cn";
 import { AnimatePresence, motion } from "motion/react";
 
-import { useState } from "react";
+import {useRef, useState} from "react";
+import {useInView} from "framer-motion";
 
 export const HoverEffect = ({
                                 items,
@@ -17,19 +18,45 @@ export const HoverEffect = ({
 }) => {
     let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, amount: 0.01 });
+
+    const listVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.3,
+            },
+        },
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+    };
+
+
     return (
-        <div
+        <motion.div
+            ref={ref}
+
+            variants={listVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
             className={cn(
                 "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
                 className
             )}
         >
             {items.map((item, idx) => (
-                <div
+                <motion.div
                     key={idx}
                     className="relative group  block p-2 h-full w-full  "
                     onMouseEnter={() => setHoveredIndex(idx)}
                     onMouseLeave={() => setHoveredIndex(null)}
+                    // @ts-ignore
+                    variants={itemVariants}
                 >
                     <AnimatePresence>
                         {hoveredIndex === idx && (
@@ -52,9 +79,9 @@ export const HoverEffect = ({
                         <CardTitle><span className="ml-2">{item.icon}</span> {item.title}</CardTitle>
                         <CardDescription>{item.description}</CardDescription>
                     </Card>
-                </div>
+                </motion.div>
             ))}
-        </div>
+        </motion.div>
     );
 };
 

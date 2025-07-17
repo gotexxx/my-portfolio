@@ -29,3 +29,11 @@ export * from "@/components/custom/projectSection";
 export * from "@/components/custom/skillSecion";
 export * from "@/components/custom/moutingWrapper";
 
+
+export * from "@/components/project/challengeSolution";
+export * from "@/components/project/featureList";
+export * from "@/components/project/gallery";
+export * from "@/components/project/projectHeader";
+export * from "@/components/project/section";
+export * from "@/components/project/sidebar";
+
