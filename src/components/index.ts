@@ -28,6 +28,7 @@ export * from "@/components/custom/navbar";
 export * from "@/components/custom/projectSection";
 export * from "@/components/custom/skillSecion";
 export * from "@/components/custom/moutingWrapper";
+export * from "@/components/custom/chatbot";
 
 
 export * from "@/components/project/challengeSolution";

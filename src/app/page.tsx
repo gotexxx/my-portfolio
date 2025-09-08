@@ -7,7 +7,7 @@ import {
     ExperienceSection,
     ContactSection,
     Footer,
-    MountingWrapper
+    Chatbot,
 } from "@/components"
 import type { Metadata } from 'next'
 
@@ -42,6 +42,7 @@ export default function Home() {
                         <ExperienceSection/>
                         <hr className="border-neutral-800"/>
                         <ContactSection/>
+                        <Chatbot />
                     </main>
                     <Footer/>
                 </div>
