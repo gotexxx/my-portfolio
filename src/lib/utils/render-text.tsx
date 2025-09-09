@@ -1,28 +1,64 @@
-import React from 'react';
+import React from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
-export const renderMarkdown = (text:any) => {
-    const lines = text.split('\n');
-    const elements:any[] = [];
 
-    lines.forEach((line:any, lineIndex:any) => {
-        if (line.trim().startsWith('*')) {
-            const listItemText = line.substring(line.indexOf('*') + 1).trim();
-            elements.push(<li className={"list-none my-2"} key={lineIndex}>{renderText(listItemText)}</li>);
-        } else {
-            elements.push(<p key={lineIndex}>{renderText(line)}</p>);
-        }
-    });
+export const renderMarkdown = (text?: string | null) => {
+    if (!text) return null;
 
-    return <>{elements}</>;
-};
-
-const renderText = (text:any) => {
-    const parts = text.split(/(\*\*.*?\*\*)/);
-    return parts.map((part:any, index:any) => {
-        if (part.startsWith('**') && part.endsWith('**')) {
-            const boldText = part.substring(2, part.length - 2);
-            return <strong className={"text-[17px]"} key={index}>{boldText}</strong>;
-        }
-        return part;
-    });
+    return (
+        <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={{
+                a: ({ node, ...props }) => (
+                    <a
+                        {...props}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline font-bold text-gray-100 hover:text-gray-300 transition duration-200"
+                    />
+                ),
+                // @ts-ignore
+                code: ({ inline, className, children, ...props }) =>
+                    inline ? (
+                        <code className="rounded px-1 py-[2px] bg-gray-700 text-sm" {...props}>
+                            {children}
+                        </code>
+                    ) : (
+                        <pre className="rounded overflow-auto bg-gray-900 p-3">
+              <code className={className} {...props}>
+                {children}
+              </code>
+            </pre>
+                    ),
+                ul: ({ children, ...props }) => (
+                    <ul className="flex flex-col gap-2 list-disc list-inside mb-2" {...props}>
+                        {children}
+                    </ul>
+                ),
+                ol: ({ children, ...props }) => (
+                    <ol className="flex flex-col gap-2 list-decimal list-inside mb-2" {...props}>
+                        {children}
+                    </ol>
+                ),
+                li: ({ children, ...props }) => (
+                    <li className=" ml-4" {...props}>
+                        {children}
+                    </li>
+                ),
+                p: ({ children, ...props }) => (
+                    <p className="leading-6 m-none " {...props}>
+                        {children}
+                    </p>
+                ),
+                strong: ({ children }) => <strong className="font-semibold text-[17px]">{children}</strong>,
+                em: ({ children }) => <em className="italic">{children}</em>,
+                blockquote: ({ children }) => (
+                    <blockquote className="border-l-2 pl-3 italic text-gray-300">{children}</blockquote>
+                ),
+            }}
+        >
+            {text}
+        </ReactMarkdown>
+    );
 };
