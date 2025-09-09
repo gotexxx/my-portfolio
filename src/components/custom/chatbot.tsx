@@ -133,6 +133,7 @@ export const Chatbot = () => {
                                         ))}
                                     </ul>
                                 </div>
+                                <p>Hinweis: Deine Eingaben werden an Google Gemini (Google LLC, USA) gesendet, um Antworten zu generieren. Ich speichere keine Daten.</p>
                             </div>
                         )}
 
