@@ -133,7 +133,7 @@ export const Chatbot = () => {
                                         ))}
                                     </ul>
                                 </div>
-                                <p>Hinweis: Deine Eingaben werden an Google Gemini (Google LLC, USA) gesendet, um Antworten zu generieren. Ich speichere keine Daten.</p>
+                                <p className="text-xs text-gray-400 mt-2">Hinweis: Deine Eingaben werden an Google Gemini (Google LLC, USA) gesendet, um Antworten zu generieren.</p>
                             </div>
                         )}
 
@@ -150,8 +150,8 @@ export const Chatbot = () => {
                         ))}
 
                         {loading && (
-                            <div className="text-gray-500 animate-pulse ">
-                                <div className=" bg-gray-600 rounded w-2/3 mb-2 h-[40px]"></div>
+                            <div className="text-gray-500 animate-pulse  ">
+                                <div className=" bg-gray-600  w-6/8 mb-2 h-[40px] rounded-xl"></div>
                             </div>
                         )}
                     </div>
