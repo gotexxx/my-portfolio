@@ -18,19 +18,6 @@ export const renderMarkdown = (text?: string | null) => {
                         className="underline font-bold text-gray-100 hover:text-gray-300 transition duration-200"
                     />
                 ),
-                // @ts-ignore
-                code: ({ inline, className, children, ...props }) =>
-                    inline ? (
-                        <code className="rounded px-1 py-[2px] bg-gray-700 text-sm" {...props}>
-                            {children}
-                        </code>
-                    ) : (
-                        <pre className="rounded overflow-auto bg-gray-900 p-3">
-              <code className={className} {...props}>
-                {children}
-              </code>
-            </pre>
-                    ),
                 ul: ({ children, ...props }) => (
                     <ul className="flex flex-col gap-2 list-disc list-inside mb-2" {...props}>
                         {children}
