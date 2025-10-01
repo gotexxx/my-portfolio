@@ -49,11 +49,6 @@ export default function DatenschutzPage() {
                         Die Rechtsgrundlage für die Verarbeitung ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse). Es werden keine personenbezogenen Profile erstellt oder Daten zu Werbezwecken genutzt. Weiterführende Informationen finden Sie in der <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Vercel</a>.
                     </p>
 
-                    <h2 className="text-xl font-semibold mt-6">Cookies</h2>
-                    <p>
-                        Diese Website verwendet nur technisch notwendige Cookies, um z. B. die Chat-Sitzung zu verwalten. Es erfolgen keine Tracking- oder Werbecookies.
-                    </p>
-
                     <h2 className="text-xl font-semibold mt-6">Ihre Rechte</h2>
                     <p>
                         Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten sowie auf Beschwerde bei einer Datenschutzaufsichtsbehörde.
